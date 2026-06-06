@@ -1,0 +1,21 @@
+ID_Articol, Titlu_Document, Cuvant_Cheie_1, Cuvant_Cheie_2, Cuvant_Cheie_3, Cuvant_Cheie_4
+50, Arhitectura Algoritmilor, Algoritmica, Eficienta, Baze_de_Date, Procesare
+10, Bazele C++ Moderne, C++, OOP, Programare, Structuri
+70, Sisteme Distribuite, Retele, Scalabilitate, Paralelism, Mesaj
+30, Analiza Datelor, Statistici, Python, Date_Mari
+90, Teoria Complexitatii, P_vs_NP, NP_Complet, Teorie, Procesare
+20, Optimizarea Codului, Performanta, Debug, Compilator
+40, Securitate Cibernetica, Criptografie, Hash, Autentificare, Retea
+60, Inteligenta Artificiala, Machine_Learning, Retea_Neuronala, Model
+80, Robotica si Senzori, Senzori, IoT, Hardware
+05, Introducere in Unix, Shell, Linux, Terminal
+15, Grafuri si Retele, Grafuri, Noduri, Muchii
+25, Baze de Date NoSQL, MongoDB, NoSQL, JSON, Structuri
+35, Virtualizare, VM, Cloud, Hypervisor
+45, Geometrie Computationala, Geometrie, Puncte, Spatiu
+55, Blockchain Fundamentals, Blockchain, Distributie, Securitate
+65, Dezvoltare Web, HTML, CSS, JavaScript
+75, Prelucrarea Imaginilor, Imagine, Filtru, Procesare
+85, Modelare 3D, Blender, Textura, Grafica
+95, Testare Software, UnitTest, Integrare, Debug
+100, Ecuatii Diferentiale, Matematica, Ecuatii, Calcul
