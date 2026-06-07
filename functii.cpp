@@ -199,3 +199,35 @@ void RDD(Nod_AVL* &a)
 
     a = c;
 }
+void parcurgere_avl_min_max(Nod_AVL* head, int ID_MIN,int ID_MAX)
+{
+    if(head != nullptr)
+    {
+        if (ID_MIN < head->data.ID_ARTICOL)
+            parcurgere_avl_min_max(head->stg, ID_MIN, ID_MAX);
+        
+        if (head->data.ID_ARTICOL >= ID_MIN && head->data.ID_ARTICOL <= ID_MAX)
+            std::cout << head->data.ID_ARTICOL << " ";
+        
+        if (ID_MAX > head->data.ID_ARTICOL)
+            parcurgere_avl_min_max(head->drt, ID_MIN, ID_MAX);
+    }
+}
+void cautare_articol(Nod_AVL* head,int ID_CAUTAT,int &pasi)
+{
+    if (head == nullptr)
+        return;
+    
+    pasi = pasi + 1;
+
+    if(head->data.ID_ARTICOL == ID_CAUTAT)
+    {
+        std::cout << pasi << std::endl;
+        return;
+    }
+
+    if(ID_CAUTAT < head->data.ID_ARTICOL)
+        cautare_articol(head->stg,ID_CAUTAT,pasi);
+    else if(ID_CAUTAT > head->data.ID_ARTICOL)
+        cautare_articol(head->drt,ID_CAUTAT,pasi);
+}

@@ -42,6 +42,7 @@ void insert_table(Document_El_Tabel** &table,Document data);
 void show_table(Document_El_Tabel** table);
 
 //Cerinte
-void parcurgere_avl_min_max(int ID_MIN,int ID_MAX);
+void parcurgere_avl_min_max(Nod_AVL* head, int ID_MIN,int ID_MAX);
+void cautare_articol(Nod_AVL* head,int ID_CAUTAT,int &pasi);
 
 #endif

@@ -62,6 +62,12 @@ int main()
     }
 
     file.close();
-    show_table(table);
+    std::cout << "Articole intre min/max: ";
+    parcurgere_avl_min_max(avl_arb->head,30,70);
+
+    std::cout << std::endl;
+    std::cout << "Gasire articol dupa n pasi: ";
+    int nrp = 0;
+    cautare_articol(avl_arb->head,35,nrp);
     return 0;
 }
