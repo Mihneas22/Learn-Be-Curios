@@ -32,10 +32,6 @@ int main()
         std::string token;
         Document doc;
 
-        for (int i = 0; i < 10; ++i) {
-            doc.Cuvinte_Cheie[i] = "";
-        }
-
         if (std::getline(ss, token, ',')) {
             try {
                 doc.ID_ARTICOL = std::stoi(trim(token));
@@ -48,12 +44,10 @@ int main()
             doc.Titlu_Document = trim(token);
         }
 
-        int indexCuvant = 0;
-        while (std::getline(ss, token, ',') && indexCuvant < 10) {
+        while (std::getline(ss, token, ',') && doc.Cuvinte_Cheie.size() < 10) {
             std::string cuvantCuratat = trim(token);
             if (!cuvantCuratat.empty()) {
-                doc.Cuvinte_Cheie[indexCuvant] = cuvantCuratat;
-                indexCuvant++;
+                doc.Cuvinte_Cheie.push_back(cuvantCuratat);
             }
         }
         insert_table(table,doc);
@@ -69,5 +63,8 @@ int main()
     std::cout << "Gasire articol dupa n pasi: ";
     int nrp = 0;
     cautare_articol(avl_arb->head,35,nrp);
+
+    std::vector<std::string> cuv_cheie_cautare = {"Senzori", "IoT", "Hardware"};
+    filtrare_multipla(table,cuv_cheie_cautare);
     return 0;
 }
