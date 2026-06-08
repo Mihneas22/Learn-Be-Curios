@@ -28,7 +28,7 @@ struct AVL{
 };
 
 struct Nod{
-    int data;
+    Nod_AVL* data;
     Nod* next;
 };
 
@@ -59,16 +59,16 @@ void insert_table(Document_El_Tabel** &table,Document data);
 
 //Stack
 void init_stack(Stack* &s);
-void push(Stack* &s,int x);
+void push(Stack* &s,Nod_AVL* x);
 void pull(Stack* &s);
-int top(Stack* s);
+Nod_AVL* top(Stack* s);
 bool isEmpty(Stack* s);
 
 //Queue
 void init_queue(Queue* &q);
-void put(Queue* &q,int x);
+void put(Queue* &q,Nod_AVL* nod);
 void pop(Queue* &q);
-int get(Queue* q);
+Nod_AVL* get(Queue* q);
 bool isEmptyQueue(Queue* q);
 
 //Cerinta I - AVL

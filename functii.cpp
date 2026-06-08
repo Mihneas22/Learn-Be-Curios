@@ -59,7 +59,7 @@ void init_stack(Stack* &s)
 {
     s = new Stack{nullptr};
 }
-void push(Stack* &s,int x)
+void push(Stack* &s,Nod_AVL* x)
 {
     Nod* nou = new Nod{x,s->head};
     s->head = nou;
@@ -73,12 +73,12 @@ void pull(Stack* &s)
         delete temp;
     }
 }
-int top(Stack* s)
+Nod_AVL* top(Stack* s)
 {
     if(!isEmpty(s))
         return s->head->data;
     else
-        return -1;
+        return nullptr;
 }
 bool isEmpty(Stack* s)
 {
@@ -93,9 +93,9 @@ void init_queue(Queue* &q)
 {
     q = new Queue{nullptr};
 }
-void put(Queue* &q,int x)
+void put(Queue* &q,Nod_AVL* nod)
 {
-    Nod* nou = new Nod{x,nullptr};
+    Nod* nou = new Nod{nod,nullptr};
     if(isEmptyQueue(q))
     {
         q->head = nou;
@@ -120,12 +120,12 @@ void pop(Queue* &q)
         delete temp;
     }
 }
-int get(Queue* q)
+Nod_AVL* get(Queue* q)
 {
     if(!isEmptyQueue(q))
         return q->head->data;
     else
-        return -1;
+        return nullptr;
 }
 bool isEmptyQueue(Queue* q)
 {
@@ -142,21 +142,43 @@ void BFS(AVL* arb)
     init_queue(q);
 
     Nod_AVL* cnt = arb->head;
-    put(q,cnt->data.ID_ARTICOL);
-    while(cnt->stg != nullptr)
+    put(q,cnt);
+    while(!isEmptyQueue(q))
     {
-        while(!isEmptyQueue(q))
-        {
-            int val = get(q);
-            pop(q);
+        Nod_AVL* curent = get(q);
+        pop(q);
 
-            std::cout << val << " ";
-            put(q,cnt->stg->data.ID_ARTICOL);
-            put(q,cnt->drt->data.ID_ARTICOL);
-        }
+        std::cout << curent->data.ID_ARTICOL << " ";
+        
+        if(curent->stg != nullptr)
+            put(q,curent->stg);
+        
+        if(curent->drt != nullptr)
+            put(q,curent->drt);
     }
 }
-void DFS(AVL* arb);
+void DFS(AVL* arb)
+{
+    bool vizitat[TABLE_SIZE] = {0};
+    Stack* s = 0;
+    init_stack(s);
+
+    Nod_AVL* cnt = arb->head;
+    push(s,cnt);
+    while(!isEmpty(s))
+    {
+        Nod_AVL* curent = top(s);
+        pull(s);
+
+        std::cout << curent->data.ID_ARTICOL << " ";
+        
+        if(curent->stg != nullptr)
+            push(s,curent->stg);
+        
+        if(curent->drt != nullptr)
+            push(s,curent->drt);
+    }
+}
 
 //AVL
 void init_avl(AVL* &arb)
